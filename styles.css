@@ -21,8 +21,8 @@
 .pixel {
     width: 40px;
     height: 40px;
-    background-color: grey;
-    border-color: black;
+    background-color: white;
+    border-color: grey;
     border-width: 1px;
     border-style: solid;
 }
