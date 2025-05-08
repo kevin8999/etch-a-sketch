@@ -1,0 +1,28 @@
+.drawing-board {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0px;
+    flex-direction: column;
+
+    min-width: 500px;
+    max-width: 1000px;
+    width: 50%;
+
+    margin: auto;
+}
+
+.board-row {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 0px;
+}
+
+.pixel {
+    width: 40px;
+    height: 40px;
+    background-color: grey;
+    border-color: black;
+    border-width: 1px;
+    border-style: solid;
+}
