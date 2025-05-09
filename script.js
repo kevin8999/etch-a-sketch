@@ -32,8 +32,27 @@ function createDrawingBoard(numRows, numCols) {
     // Get properties of drawingBoard
     const properties = window.getComputedStyle(drawingBoard);
 
-    let boardWidth = parseFloat(properties.width);
-    let boardHeight = parseFloat(properties.width);
+    // Original board size
+    let boardWidth = 700;
+    let boardHeight = 700;
+
+    let pixelWidth = Math.floor(boardWidth / numCols);
+    let pixelHeight = Math.floor(boardHeight / numRows);
+
+    console.log("Pixel Width: " + pixelWidth);
+    console.log("Pixel Height: " + pixelHeight);
+
+    // Pick the smaller value
+    if (pixelWidth < pixelHeight) {
+        pixelHeight = pixelWidth;
+    }
+    else {
+        pixelWidth = pixelHeight;
+    }
+
+    // Change boardWidth and boardHeight to fit new board size
+    drawingBoard.style.width = (pixelWidth * numCols) + "px";
+    drawingBoard.style.height = (pixelHeight * numRows) + "px";
 
     console.log("Board width: " + boardWidth);
 
@@ -45,23 +64,8 @@ function createDrawingBoard(numRows, numCols) {
             let pixel = document.createElement("div");
             pixel.className = "pixel";
 
-            let pixelWidth = Math.floor(boardWidth / numCols);
-            let pixelHeight = Math.floor(boardHeight / numRows);
-
-            console.log("Pixel Width: " + pixelWidth);
-            console.log("Pixel Height: " + pixelHeight);
-
-            // Pick the smaller value
-            if (pixelWidth < pixelHeight) {
-                pixelHeight = pixelWidth;
-            }
-            else {
-                pixelWidth = pixelHeight;
-            }
-
             pixel.style.width = pixelWidth.toString() + "px";
             pixel.style.height = pixel.style.width;
-
 
             pixel.addEventListener("mouseover", () => {
                 pixel.style.backgroundColor = getColor();
