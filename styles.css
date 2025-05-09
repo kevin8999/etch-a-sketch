@@ -8,6 +8,10 @@
     width: 700px;
 
     margin: auto;
+
+    border-color: black;
+    border-width: 10px;
+    border-style: solid;
 }
 
 .board-row {
