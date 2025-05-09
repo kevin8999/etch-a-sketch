@@ -37,7 +37,6 @@ function createDrawingBoard(numRows, numCols) {
 
     console.log("Board width: " + boardWidth);
 
-    let board = [];
     for (let i = 0; i < numRows; i++) {
         let boardRow = document.createElement("div");
         boardRow.className = "board-row";
