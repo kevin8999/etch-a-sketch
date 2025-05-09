@@ -79,10 +79,15 @@ function createDrawingBoard(numRows, numCols) {
 function isValidRowColVal(value) {
     // Check that input is between 1 and 36. Note that input is already a number
     if (Number.isInteger(value)) {
-        if (1 <= value && value <= 36) {
+        if (1 <= value && value <= 100) {
             console.log(true);
             return true;
+        } else {
+            console.log("Enter a number between 1 and 100.");
         }
+    }
+    else {
+        console.log(value + " is not a valid integer.")
     }
     console.log("Invalid row/column value");
     return false;
