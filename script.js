@@ -26,6 +26,9 @@ function createDrawingBoard(numRows, numCols) {
     // Creates squares for drawing board that is numCols wide and numRows long
     drawingBoard = document.querySelector('.drawing-board');
 
+    // Reset drawingBoard
+    drawingBoard.innerHTML = "";
+
     // Get properties of drawingBoard
     const properties = window.getComputedStyle(drawingBoard);
 
@@ -74,4 +77,37 @@ function createDrawingBoard(numRows, numCols) {
 
 }
 
-createDrawingBoard(36, 36);
+function isValidRowColVal(value) {
+    // Check that input is between 1 and 36. Note that input is already a number
+    if (Number.isInteger(value)) {
+        if (1 <= value && value <= 36) {
+            console.log(true);
+            return true;
+        }
+    }
+    console.log("Invalid row/column value");
+    return false;
+}
+
+function configureBoard() {
+    const btn = document.querySelector("#generate-board-btn");
+
+    btn.addEventListener("click", () => {
+        // Get values of row and column inputted by user
+        const rowInput = document.getElementById("row-select");
+        let rowVal = rowInput.value;
+        const colInput = document.getElementById("col-select");
+        let colVal = colInput.value;
+
+        // Convert to number
+        rowVal = parseInt(rowVal, 10);
+        colVal = parseInt(colVal, 10);
+
+        if (isValidRowColVal(rowVal) && isValidRowColVal(colVal)) {
+            createDrawingBoard(rowVal, colVal);
+        }
+    });
+
+}
+
+configureBoard();
